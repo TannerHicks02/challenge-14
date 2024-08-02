@@ -1,0 +1,18 @@
+{{#extend "main"}}
+  {{#content "body"}}
+    <h1>Blog Posts</h1>
+    <ul>
+      {{#each posts}}
+        <li>
+          <a href="/posts/{{this.id}}">{{this.title}}</a> - {{this.createdAt}}
+        </li>
+      {{/each}}
+    </ul>
+    {{#if user}}
+      <a href="/posts/new">Create a New Post</a>
+      <a href="/users/logout">Logout</a>
+    {{else}}
+      <a href="/users/login">Login</a>
+      <a href="/users/signup">Signup</a>
+    {{/if}}
+  {{/content}}
